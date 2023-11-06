@@ -1,0 +1,146 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Калькулятор" Height="477" Width="304" WindowStyle="ThreeDBorderWindow">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="Brush3">
+            <GradientStop Color="#FFC4D0" Offset="0"/>
+            <GradientStop Color="#FBE8E7" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="Brush2">
+            <GradientStop Color="LightYellow" Offset="0"/>
+            <GradientStop Color="DarkGray" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="Brush1">
+            <GradientStop Color="Orange" Offset="0"/>
+            <GradientStop Color="LightYellow" Offset="1"/>
+        </LinearGradientBrush>
+        <Style x:Key="AllButtons" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gray"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Background" Value="#323232"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+            <Style x:Key="ResultButton" TargetType="Button">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background" Value="Gray"/>
+                    </Trigger>
+                    <Trigger Property="IsPressed" Value="True">
+                        <Setter Property="Background" Value="Black"/>
+                        <Setter Property="Foreground" Value="White"/>
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="Height" Value="70"/>
+                <Setter Property="Width" Value="70"/>
+                <Setter Property="Background" Value="White"/>
+                <Setter Property="Foreground" Value="Black"/>
+                <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ComputerButtons" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource Brush2}"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="{StaticResource Brush3}"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Background" Value="{StaticResource Brush1}"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+    </Window.Resources>
+    <Grid Name="MainGrid" Background="#212121">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Foreground="Gray"  Background="#212121" Grid.Column="0" Text="" FontSize="30" Name="textLabel" Grid.ColumnSpan="4" Margin="0,0,0,77" Grid.RowSpan="2"></TextBlock>
+        <Button Content ="7" Style = "{StaticResource AllButtons}" Grid.Row="2" Grid.Column="0" FontSize="30"/>
+        <Button Content ="8" Style = "{StaticResource AllButtons}" Grid.Row="2" Grid.Column="1" FontSize="30"/>
+        <Button Content ="9" Style = "{StaticResource AllButtons}" Grid.Row="2" Grid.Column="2" FontSize="30"/>
+        <Button Content ="4" Style = "{StaticResource AllButtons}" Grid.Row="3" Grid.Column="0" FontSize="30"/>
+        <Button Content ="5" Style = "{StaticResource AllButtons}" Grid.Row="3" Grid.Column="1" FontSize="30"/>
+        <Button Content ="6" Style = "{StaticResource AllButtons}" Grid.Row="3" Grid.Column="2" FontSize="30"/>
+        <Button Content ="1" Style = "{StaticResource AllButtons}" Grid.Row="4" Grid.Column="0" FontSize="30"/>
+        <Button Content ="2" Style = "{StaticResource AllButtons}" Grid.Row="4" Grid.Column="1" FontSize="30"/>
+        <Button Content ="3" Style = "{StaticResource AllButtons}" Grid.Row="4" Grid.Column="2" FontSize="30"/>
+        <Button Content ="BackSpace" Style = "{StaticResource ResultButton}" Grid.Row="1" Grid.Column="2" FontSize="13"/>
+        <Button Content="AC" Style = "{StaticResource ResultButton}" Grid.Row="1" Grid.Column="0" FontSize="30"/>
+        <Button Content="%" Style = "{StaticResource ResultButton}" Grid.Row="1" Grid.Column="1" FontSize="30"/>
+        <Button Content="/" Style="{StaticResource ComputerButtons}" Grid.Row="1" Grid.Column="3" FontSize="30"/>
+        <Button Content ="*" Style="{StaticResource ComputerButtons}" Grid.Row="2" Grid.Column="3" FontSize="30"/>
+        <Button Content="-" Style="{StaticResource ComputerButtons}" Grid.Row="3" Grid.Column="3" FontSize="30"/>
+        <Button Content="+" Style="{StaticResource ComputerButtons}" Grid.Row="4" Grid.Column="3" FontSize="30"/>
+        <Button Style="{StaticResource ComputerButtons}" Content="=" Grid.Row="5" Grid.Column="3" FontSize="30"/>
+        <Button Content ="0" Style = "{StaticResource AllButtons}" Grid.Row="5" Grid.Column="1" FontSize="30"/>
+        <Button Content ="." Style = "{StaticResource AllButtons}" Grid.Row="5" Grid.Column="2" FontSize="30"/>
+        <Button Content ="+/-" Style = "{StaticResource AllButtons}" Grid.Row="5" Grid.Column="0" FontSize="30"/>
+        <Rectangle Margin="0,69,0,5" Height="3" Grid.Column="0" Grid.ColumnSpan="4" Fill="#323232" HorizontalAlignment="Right" Width="304"/>
+
+
+    </Grid>
+</Window>
